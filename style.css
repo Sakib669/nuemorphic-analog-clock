@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e4ebf5;
+}
+.clock{
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 7px 7px 14px #c8d0e7, -5px -5px 10px #fff;
+}
+.clock::before, .clock::after, .point{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+.clock::before{
+    width: 95%;
+    height: 95%;
+    box-shadow: inset 5px 5px 10px #c8d0e7, inset -5px -5px 10px #fff;
+}
+.clock::after{
+    width: 50%;
+    height: 50%;
+    box-shadow: inset 2px 2px 2px #c8d0e7, inset -2px -2px 2px #fff;
+}
+.point{
+    z-index: 3;
+    width: 14px;
+    height: 14px;
+    background-color: #4b37fb;
+}
+.hand{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    border-radius: 5px;
+    transform-origin: bottom;
+    transform: translate(-50%, -100%);
+}
+.hours{
+    width: 8px;
+    height: 20%;
+    background-color: #93a4d2;
+    animation: spin 216000s steps(60) infinite;
+
+}
+.minutes{
+    width: 8px;
+    height: 30%;
+    background-color: #647bb4;
+    animation: spin 3600s steps(60) infinite;
+
+}
+.seconds{
+    width: 7px;
+    height: 45%;
+    background-color: #4b37fb;
+    animation: spin 60s steps(60) infinite;
+}
+@keyframes spin{
+    from{
+        transform: translate(-50%, -100%) rotate(0deg);
+    }
+    to{
+        transform: translate(-50%, -100%) rotate(360deg);
+    }
+}
